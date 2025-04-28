@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الجوازات - الصفحة الرئيسية</title>
+    <style>
+        /* Original CSS code should be injected here */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: "Segoe UI", "Arial", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            box-sizing: border-box;
+            background-color: #ffffff;
+        }
+       
+        .screen {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: rgba(195, 233, 215, 0.3);
+            border-bottom: 1px solid #000000;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            margin-right:15px;
+        }
+
+        .header-text {
+            font-size: 11px;
+            text-align: center;
+            margin-left:599px;
+            line-height: 1.5;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .action-group {
+            display: flex;
+            align-items: center;
+            gap: 5px; /* تباعد أقل للمجموعة الأولى */
+            margin-left:45px;
+        }
+
+        .header-actions a {
+            text-decoration: none;
+            color: #000;
+            font-family: sans-serif;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 8px;
+        }
+
+        /* الفاصل العمودي */
+        .header-actions .separator {
+            height: 20px;
+            border-left: 2px solid #ddd;
+            margin: 0 1px; /* تقليل التباعد حول الفواصل */
+        }
+
+        /* تباعد أكبر لتسجيل الخروج */
+        .logout {
+            margin-left: 25px; /* زيادة التباعد من اليسار */
+        }
+
+        /* تعديل أيقونة البحث */
+        .search-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+
+        /* تنسيق البانر العلوي */
+        .welcome-banner {
+            background-image: url("https://i.postimg.cc/3Nh7MXWm/jawazat.jpg");
+            background-size: cover;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+            box-shadow: inset 0 0 15px rgba(169, 169, 169, 0.6);
+        }
+
+            .welcome-banner::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient( to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100% );
+            }
+
+        .welcome-text {
+            color: #fff;
+            font-size: 45px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            top: -30px; /* تعديل موقع النص على الصورة */
+        }
+
+        /* تنسيق البطاقات */
+        .action-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 7%;
+            max-width: 1100px;
+            margin: -150px auto 0; /* رفع البطاقات 100px للأعلى */
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+            background-position-y: 500px;
+        }
+
+        .action-card {
+            background: #fff;
+            border-radius: 102px 102px 15px 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.1);
+            height: 290px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+
+        .action-icon {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 40px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .action-title {
+            color: #165939;
+            font-size: 26px;
+            font-weight: 700;
+            text-align: center;
+            margin-top: auto;
+            margin-bottom: 60px;
+            padding: 0 15px;
+        }
+
+        .action-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(76, 175, 80, 0.2);
+        }
+
+        
+      
+        
+        .footer {
+            background-color: rgba(195, 233, 215, 0.3);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            width: 122px;
+            height: 126px;
+            margin-right: 970px;
+            margin-bottom:-90px;
+        }
+
+        .footer-text {
+            font-size: 24px;
+            margin-left:700px;
+            margin-bottom:40px;
+        }
+
+        @media (max-width: 768px) {
+            .action-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .welcome-text {
+                font-size: 36px;
+            }
+
+            .action-card {
+                width: 90%;
+                max-width: 300px;
+            }
+        }
+        @media (max-width:1506px) {
+            .jawazat-image {
+                width:1506px;
+                height:570px;
+                left
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="screen">
+        <header class="header">
+            <img src="https://i.postimg.cc/CxkN5bKz/Logo.png" alt="شعار الجوازات" class="logo" />
+            <div class="header-text">
+                <p>المملكة العربية السعودية<br /> وزارة الداخلية<br /> المديرية العامة للجوازات</p>
+            </div>
+            <div class="header-actions">
+                <div class="action-group">
+                    <!-- أيقونة البحث -->
+                    <a href="#" aria-label="بحث">
+                        <img src="srsh.svg" class="search-icon" alt="بحث" />
+                    </a>
+
+                    <!-- الفاصل -->
+                    <span class="separator"></span>
+
+                    <!-- العناصر الأخرى -->
+                    <a href="#" aria-label="تواصل معنا">تواصل معنا</a>
+                    <span class="separator"></span>
+
+                    <a href="#" aria-label="تغيير اللغة">
+                        <img src="lang.svg" alt="تغيير اللغة" width="24" height="24" />
+                    </a>
+                </div>
+
+                <div class="logout">
+                    <a href="#" aria-label="تسجيل خروج">
+                        <img src="out.svg" alt="تسجيل خروج" width="24" height="24" />
+                        تسجيل خروج
+                    </a>
+                </div>
+            </div>
+        </header>
+        <main class="dashboard">
+            <!-- البانر العلوي مع الصورة والنص -->
+            <div class="welcome-banner">
+                <h1 class="welcome-text">مرحباً! يوسف</h1>
+            </div>
+
+            <!-- قائمة البطاقات -->
+            <div class="action-cards">
+                <a href="#" class="action-card" id="assignment">
+                    <div class="card-top"></div>
+                    <img src="assu.svg" class="action-icon" alt="التعميد">
+                    <span class="action-title">التعميد</span>
+                </a>
+
+                <a href="#" class="action-card" id="maintenance">
+                    <div class="card-top"></div>
+                    <img src="bui.svg" class="action-icon" alt="طلب صيانة">
+                    <span class="action-title">طلب صيانة</span>
+                </a>
+
+                <a href="#" class="action-card" id="users">
+                    <div class="card-top"></div>
+                    <img src="grop.svg" class="action-icon" alt="المستخدمين">
+                    <span class="action-title">المستخدمين</span>
+                </a>
+
+                <a href="#" class="action-card" id="budget">
+                    <div class="card-top"></div>
+                    <img src="req.svg" class="action-icon" alt="تحديد مبلغ الصرف">
+                    <span class="action-title">تحديد مبلغ الصرف</span>
+                </a>
+            </div>
+        </main>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <footer class="footer">
+            <img src="Logo.svg" alt="شعار الجوازات" class="footer-logo" />
+            <p class="footer-text">جميع الحقوق محفوظة © 2025 | الجوازات.</p>
+        </footer>
+    </div>
+</body>
+</html>
